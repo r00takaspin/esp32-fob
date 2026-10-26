@@ -129,7 +129,7 @@ def rr2(x,y,w,h,r,fill,stroke,dash=None,wid=0.35):
     add('<rect x="%s" y="%s" width="%s" height="%s" rx="%s" fill="%s" stroke="%s" stroke-width="%s"%s/>'
         %(n(x),n(y),n(w),n(h),n(r),fill,stroke,n(wid),dd))
 rr2(18,3.1,21,17.8,1.2,"#dbe4ee",INK,None,0.45)      # XIAO
-rr2(1.5,3.5,15,17,1.5,"#f0e3cc",INK,None,0.45)           # АКБ
+rr2(1.5,1.5,11,20,1.0,"#f0e3cc",INK,None,0.45)           # АКБ
 rr2(2,2,30,20,1.0,"#cfe0f0",BLU,"1.2 0.9",0.4)    # RTC сверху
 rr2(2,5.75,36.5,12.5,1.0,"none",SOFT,"1.6 1.1",0.4)  # дисплей сверху
 add('</g>')
@@ -149,7 +149,7 @@ def band(x0,x1,z0,z1,fill,stroke=INK,wid=0.4,label=None):
 band(0,41,0,2.0,"url(#h)")                 # крышка
 band(2.2,37.8,2.0,3.3,"#1b2530")             # дисплей
 band(2.0,32.0,3.3,10.3,"#cfe0f0")            # RTC 30×20×7
-band(1.5,16.5,10.3,13.8,TAN)                  # АКБ
+band(1.5,12.5,10.3,14.3,TAN)                  # АКБ
 band(18.5,39.0,10.3,13.3,"#dbe4ee")           # XIAO
 band(0,1.5,2.0,14.4,"url(#h)")                # стенка
 band(39.5,41,2.0,14.4,"url(#h)")            # стенка
