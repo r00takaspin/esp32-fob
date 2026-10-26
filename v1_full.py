@@ -65,7 +65,7 @@ def ring_lip(z0, h):
     return o.cut(i)
 
 # ---------------------------------------------------------------- крышка
-cover = body(0, T_FRONT)
+cover = body(0, T_FRONT).edges("<Z").fillet(1.2)   # скруглить верхнюю кромку
 cover = cover.cut(rrect(WIN_W, WIN_H, 0.6, WIN_X+WIN_W/2, WIN_Y+WIN_H/2, -1, T_FRONT+2))
 cover = cover.cut(hole(HOLE_D, EAR_TIP_X, HOLE_Y, -1, T_FRONT+2))
 dx,dy,dw,dh = DISP
@@ -75,7 +75,7 @@ cover = cover.union(ring_lip(T_FRONT, 1.0))   # бортик для съёмно
 cover = cover.cut(cyl_y(2.0, 34.0, T_FRONT, -0.5, 1.5))  # паз под ноготь
 
 # ---------------------------------------------------------------- дно
-back = body(Z_CAV0, T-Z_CAV0)
+back = body(Z_CAV0, T-Z_CAV0).edges(">Z").fillet(1.2)   # скруглить нижнюю кромку
 back = back.cut(cavity(Z_CAV0, Z_CAV1-Z_CAV0))
 back = back.cut(hole(HOLE_D, EAR_TIP_X, HOLE_Y, Z_CAV0-1, T))
 back = back.cut(blk(38.8, W+1.0, USB_Y0, USB_Y1, USB_Z0, USB_Z1))
