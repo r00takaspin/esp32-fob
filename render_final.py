@@ -75,7 +75,7 @@ def render(items, path, size=(2200,1300), ss=2, eye_dir=(0.62,-0.62,0.48), up=(0
 P="/tmp/r_"
 items=[
  ("parts/v1_back.stl",(0.66,0.71,0.79),1.0),
- ("parts/v1_cover.stl",(0.66,0.71,0.79),0.22),
+ ("parts/v1_cover.stl",(0.66,0.71,0.79),1.0),
  (P+"batt.stl",(0.85,0.76,0.62),1.0),
  (P+"pcb.stl",(0.20,0.44,0.31),1.0),
  (P+"shield.stl",(0.56,0.61,0.67),1.0),
