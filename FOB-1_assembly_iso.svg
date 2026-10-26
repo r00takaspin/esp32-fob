@@ -85,7 +85,7 @@
 <circle cx="160" cy="53.2" r="2.4" fill="#ffffff" stroke="#2b6b86" stroke-width="0.2"/>
 <text x="160" y="54.05" font-family="Helvetica" font-size="2.2" fill="#2b6b86" text-anchor="middle" font-weight="bold">1</text>
 <text x="167" y="54" font-family="Helvetica" font-size="2.6" fill="#1b2430" text-anchor="start" font-weight="bold" letter-spacing="0.4">КРЫШКА</text>
-<text x="167" y="58.6" font-family="Helvetica" font-size="1.9" fill="#8b98a8" text-anchor="start" font-weight="normal">пластина 2,0 · окно 23 × 6,4 · рёбра под дисплей</text>
+<text x="167" y="58.6" font-family="Helvetica" font-size="1.9" fill="#8b98a8" text-anchor="start" font-weight="normal">пластина 2,0 · окно 23 × 6,4 · бортик 0,5 · съёмная</text>
 <circle cx="160" cy="81.2" r="2.4" fill="#ffffff" stroke="#2b6b86" stroke-width="0.2"/>
 <text x="160" y="82.05" font-family="Helvetica" font-size="2.2" fill="#2b6b86" text-anchor="middle" font-weight="bold">2</text>
 <text x="167" y="82" font-family="Helvetica" font-size="2.6" fill="#1b2430" text-anchor="start" font-weight="bold" letter-spacing="0.4">ДИСПЛЕЙ</text>
@@ -109,6 +109,6 @@
 <line x1="160" y1="172" x2="285" y2="172" stroke="#1b2430" stroke-width="0.25" stroke-linecap="round"/>
 <text x="160" y="178" font-family="Helvetica" font-size="1.8" fill="#1b2430" text-anchor="start" font-weight="normal">В сборе: дисплей упирается в окно крышки,</text>
 <text x="160" y="182.4" font-family="Helvetica" font-size="1.8" fill="#1b2430" text-anchor="start" font-weight="normal">XIAO прижимает RTC и АКБ к дну,</text>
-<text x="160" y="186.8" font-family="Helvetica" font-size="1.7" fill="#1b2430" text-anchor="start" font-weight="normal">кнопка клеится снаружи, провода в отверстие, крышка — на клей.</text>
+<text x="160" y="186.8" font-family="Helvetica" font-size="1.7" fill="#1b2430" text-anchor="start" font-weight="normal">кнопка клеится снаружи, провода в отверстие, крышка — съёмная (бортик в паз).</text>
 <text x="160" y="194" font-family="Helvetica" font-size="1.7" fill="#8b98a8" text-anchor="start" font-weight="normal">Полость 38 × 21 × 12,4 мм · стенка 1,5 мм · 12 точек пайки</text>
 </svg>

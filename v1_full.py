@@ -56,6 +56,14 @@ def rrect(w,h,r,cx,cy,z0,hz):
 def hole(d,x,y,z0,h):
     return cq.Workplane("XY", origin=(0,0,z0)).center(x,y).circle(d/2).extrude(h)
 
+def ring_lip(z0, h):
+    """Кольцо-бортик 0,5 мм у внутреннего края стенки (паз/бортик крышки)."""
+    o = (cq.Workplane("XY", origin=(0,0,z0)).center(W/2,H/2).rect(W-2, H-2).extrude(h)
+         .edges("|Z").fillet(R-0.5))
+    i = (cq.Workplane("XY", origin=(0,0,z0)).center(W/2,H/2).rect(W-2*WALL, H-2*WALL).extrude(h)
+         .edges("|Z").fillet(RC))
+    return o.cut(i)
+
 # ---------------------------------------------------------------- крышка
 cover = body(0, T_FRONT)
 cover = cover.cut(rrect(WIN_W, WIN_H, 0.6, WIN_X+WIN_W/2, WIN_Y+WIN_H/2, -1, T_FRONT+2))
@@ -63,6 +71,8 @@ cover = cover.cut(hole(HOLE_D, EAR_TIP_X, HOLE_Y, -1, T_FRONT+2))
 dx,dy,dw,dh = DISP
 cover = cover.union(blk(dx,dx+dw,dy-0.6,dy,T_FRONT,T_FRONT+1.3))
 cover = cover.union(blk(dx,dx+dw,dy+dh,dy+dh+0.6,T_FRONT,T_FRONT+1.3))
+cover = cover.union(ring_lip(T_FRONT, 1.0))   # бортик для съёмной крышки
+cover = cover.cut(cyl_y(2.0, 34.0, T_FRONT, -0.5, 1.5))  # паз под ноготь
 
 # ---------------------------------------------------------------- дно
 back = body(Z_CAV0, T-Z_CAV0)
@@ -78,6 +88,8 @@ for m in (blk(bx, W-WALL, by, by+1.5, Z_BRD, Z_CAV1),
     back = back.union(m)
 # мембранная кнопка на 2 проводах: плоская площадка снаружи + отверстие под провода
 back = back.cut(cyl_y(2.5, 31.8, 8.45, -1.0, 2.6))   # отверстие под провода Ø2,5
+back = back.cut(ring_lip(Z_CAV0, 1.0))                # паз под бортик крышки
+back = back.cut(cyl_y(2.0, 34.0, T_FRONT, -0.5, 1.5)) # паз под ноготь на стыке
 
 # ---------------------------------------------------------------- начинка
 display = blk(DISP[0], DISP[0]+DISP[2], DISP[1], DISP[1]+DISP[3], 2.0, 3.3, 1.0)
