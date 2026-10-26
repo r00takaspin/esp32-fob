@@ -53,7 +53,7 @@ add('<rect x="8" y="8" width="%s" height="%s" fill="none" stroke="%s" stroke-wid
 # ---------- шапка ----------
 txt(14,20,"FOB-1 v1",5.2,"start",INK,"Helvetica","bold",ls=0.4)
 txt(52,18.4,"схема пайки и компоновка",3.0,"start",INK)
-txt(52,22.8,"XIAO ESP32-C3 + OLED 0,91\" + PCF8563 + кнопка · корпус 41 × 24 × 17 мм · 12 точек",2.0,"start",SOFT)
+txt(52,22.8,"XIAO ESP32-C3 + OLED 0,91\" + PCF8563 + кнопка · корпус 46 × 24 × 17 мм · 12 точек",2.0,"start",SOFT)
 line(12,27.5,285,27.5,0.3,INK)
 
 # ---------- зона A: схема соединений ----------
@@ -119,8 +119,8 @@ S=2.0; BX,BY=186.,42.
 def L(x,y): return (BX+x*S, BY+y*S)
 # контур: капсула 42 обрезана на 40,5
 add('<g transform="translate(%s,%s) scale(%s)">'%(n(BX),n(BY),n(S)))
-add('<path d="M 5,0 L 36,0 A 5,5 0 0 1 41,5 L 41,17 A 5,5 0 0 1 36,22 L 5,22 A 5,5 0 0 1 0,17 L 0,15.2 L -4.6,15.2 A 4.2,4.2 0 0 1 -4.6,6.8 L 0,6.8 L 0,5 A 5,5 0 0 1 5,0 Z" fill="#f6f8fa" stroke="%s" stroke-width="0.5"/>'%INK)
-add('<rect x="38.4" y="7.4" width="2.1" height="7.2" rx="0.8" fill="#20262e"/>')
+add('<path d="M 5,0 L 41,0 A 5,5 0 0 1 46,5 L 46,19 A 5,5 0 0 1 41,24 L 5,24 A 5,5 0 0 1 0,19 L 0,16.2 L -4.6,16.2 A 4.2,4.2 0 0 1 -4.6,7.8 L 0,7.8 L 0,5 A 5,5 0 0 1 5,0 Z" fill="#f6f8fa" stroke="%s" stroke-width="0.5"/>'%INK)
+add('<rect x="43.4" y="7.9" width="2.1" height="8.2" rx="0.8" fill="#20262e"/>')
 add('<g transform="translate(0,0)">')
 add('<circle cx="25" cy="0.75" r="3.25" fill="#dbe4ee" stroke="%s" stroke-width="0.45"/>'%INK)
 add('<circle cx="25" cy="0.75" r="2.1" fill="none" stroke="%s" stroke-width="0.25"/>'%SOFT)
@@ -128,10 +128,10 @@ def rr2(x,y,w,h,r,fill,stroke,dash=None,wid=0.35):
     dd=' stroke-dasharray="%s"'%dash if dash else ""
     add('<rect x="%s" y="%s" width="%s" height="%s" rx="%s" fill="%s" stroke="%s" stroke-width="%s"%s/>'
         %(n(x),n(y),n(w),n(h),n(r),fill,stroke,n(wid),dd))
-rr2(18,3.1,21,17.8,1.2,"#dbe4ee",INK,None,0.45)      # XIAO
+rr2(24,3.1,21,17.8,1.2,"#dbe4ee",INK,None,0.45)      # XIAO
 rr2(1.5,1.5,11,20,1.0,"#f0e3cc",INK,None,0.45)           # АКБ
-rr2(2,2,30,20,1.0,"#cfe0f0",BLU,"1.2 0.9",0.4)    # RTC сверху
-rr2(2,5.75,36.5,12.5,1.0,"none",SOFT,"1.6 1.1",0.4)  # дисплей сверху
+rr2(2,2,42,17,1.0,"#cfe0f0",BLU,"1.2 0.9",0.4)    # RTC сверху 42×17
+rr2(4.75,5.75,36.5,12.5,1.0,"none",SOFT,"1.6 1.1",0.4)  # дисплей сверху
 add('</g>')
 txt(28.5,12.5,"XIAO",2.2,"middle",INK,"Helvetica","bold")
 txt(9.5,21.5,"АКБ",2.0,"middle",INK,"Helvetica","bold")
@@ -148,15 +148,15 @@ def band(x0,x1,z0,z1,fill,stroke=INK,wid=0.4,label=None):
         %(n(x0),n(z0),n(x1-x0),n(z1-z0),fill,stroke,n(wid)))
 band(0,41,0,2.0,"url(#h)")                 # крышка
 band(2.2,37.8,2.0,3.3,"#1b2530")             # дисплей
-band(2.0,32.0,3.3,10.3,"#cfe0f0")            # RTC 30×20×7
+band(2.0,44.0,3.3,9.3,"#cfe0f0")            # RTC 42×17×6
 band(1.5,12.5,10.3,14.3,TAN)                  # АКБ
-band(18.5,39.0,10.3,13.3,"#dbe4ee")           # XIAO
+band(24.0,45.0,9.3,12.3,"#dbe4ee")           # XIAO
 band(0,1.5,2.0,14.4,"url(#h)")                # стенка
-band(39.5,41,2.0,14.4,"url(#h)")            # стенка
-band(0,41,14.4,17.0,"url(#h)")              # дно
+band(44.5,46,2.0,14.4,"url(#h)")            # стенка
+band(0,46,14.4,17.0,"url(#h)")              # дно
 add('</g>')
 txt(CX,CY-3,"разрез по оси, масштаб 2:1",1.7,"start",SOFT)
-txt(176,138,"Корпус 41 × 24 × 17 мм. RTC HW-689 30 × 20 × 7 — отдельным слоем над АКБ.",1.65,"start",SOFT)
+txt(176,138,"Корпус 46 × 24 × 17 мм. RTC 42 × 17 × 6 — отдельным слоем над АКБ.",1.65,"start",SOFT)
 txt(176,141.6,"В v2 RTC уедет на общую плату — корпус вернётся к 10–11 мм.",1.65,"start",SOFT)
 txt(CX+71,CY+8,"17,0",2.0,"end",SOFT)
 line(CX+72,CY,CX+72,CY+17.0*SS,0.2,SOFT)

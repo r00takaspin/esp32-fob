@@ -4,18 +4,18 @@
 import cadquery as cq
 from cadquery import exporters
 
-W, H, R = 41.0, 24.0, 5.0
+W, H, R = 46.0, 24.0, 5.0
 T, T_FRONT = 17.0, 2.0
 Z_CAV0, Z_CAV1 = 2.0, 14.4
 WALL, RC = 1.5, 3.5
 EAR_TIP_X, EAR_TAB_H, EAR_END_X = -4.6, 8.4, 2.0
 HOLE_D, HOLE_Y = 3.6, 12.0
-WIN_X, WIN_Y, WIN_W, WIN_H = 9.0, 8.8, 23.0, 6.4
-DISP = (2.0, 5.75, 36.5, 12.5)
-BRD = (18.0, 3.1, 21.0, 17.8)
+WIN_X, WIN_Y, WIN_W, WIN_H = 11.5, 8.8, 23.0, 6.4
+DISP = (4.75, 5.75, 36.5, 12.5)
+BRD = (24.0, 3.1, 21.0, 17.8)
 BAT = (1.5, 1.5, 11.0, 20.0)   # LiPo 401120: 20×11×4, лёжа (11 по x, 20 по y)
-Z_BRD, Z_LIP = 10.3, 10.0
-USB_Z0, USB_Z1, USB_Y0, USB_Y1 = 10.5, 13.5, 6.5, 16.5
+Z_BRD, Z_LIP = 9.3, 9.0
+USB_Z0, USB_Z1, USB_Y0, USB_Y1 = 9.5, 12.5, 7.5, 16.5
 BTN_X = 25.0                  # боковая кнопка: положение по x
 MEM_D = 5.0                   # мембрана (покупается) Ø5,0 — целиком на стенке стакана
 MEM_REC_D = 5.2               # цековка под мембрану Ø5,2
@@ -78,7 +78,7 @@ cover = cover.cut(cyl_y(2.0, 34.0, T_FRONT, -0.5, 1.5))  # паз под ног�
 back = body(Z_CAV0, T-Z_CAV0).edges(">Z").fillet(1.2)   # скруглить нижнюю кромку
 back = back.cut(cavity(Z_CAV0, Z_CAV1-Z_CAV0))
 back = back.cut(hole(HOLE_D, EAR_TIP_X, HOLE_Y, Z_CAV0-1, T))
-back = back.cut(blk(38.8, W+1.0, USB_Y0, USB_Y1, USB_Z0, USB_Z1))
+back = back.cut(blk(44.5, W+1.0, USB_Y0, USB_Y1, USB_Z0, USB_Z1))
 bx,by,bw,bh = BRD
 for m in (blk(bx, W-WALL, by, by+1.5, Z_BRD, Z_CAV1),
           blk(bx, W-WALL, by+bh-1.5, by+bh, Z_BRD, Z_CAV1),
@@ -93,12 +93,12 @@ back = back.cut(cyl_y(2.0, 34.0, T_FRONT, -0.5, 1.5)) # паз под ногот
 
 # ---------------------------------------------------------------- начинка
 display = blk(DISP[0], DISP[0]+DISP[2], DISP[1], DISP[1]+DISP[3], 2.0, 3.3, 1.0)
-pcb = blk(BRD[0], BRD[0]+BRD[2], BRD[1], BRD[1]+BRD[3], 10.3, 11.3, 1.0)
-shield = blk(22.0, 35.0, 5.5, 18.5, 11.3, 13.3, 0.8)
-usb_c = blk(36.5, 39.0, 7.5, 16.5, 10.5, 13.5, 0.6)
-batt = blk(BAT[0], BAT[0]+BAT[2], BAT[1], BAT[1]+BAT[3], 10.3, 14.3, 1.0)
+pcb = blk(BRD[0], BRD[0]+BRD[2], BRD[1], BRD[1]+BRD[3], 9.3, 10.3, 1.0)
+shield = blk(28.0, 41.0, 5.5, 18.5, 10.3, 12.3, 0.8)
+usb_c = blk(44.0, 46.5, 7.5, 16.5, 9.5, 12.5, 0.6)
+batt = blk(BAT[0], BAT[0]+BAT[2], BAT[1], BAT[1]+BAT[3], 9.3, 13.3, 1.0)
 # готовый модуль RTC HW-689 30×20×7 — отдельный слой над АКБ и XIAO
-rtc = blk(2.0, 32.0, 2.0, 22.0, 3.3, 10.3, 0.6)
+rtc = blk(2.0, 44.0, 2.0, 19.0, 3.3, 9.3, 0.6)   # PCF8563 42×17×6
 # ---------------------------------------------------------------- мембранная кнопка на 2 проводах (покупается)
 button = blk(19.5, 30.5, -1.2, 0.0, 5.0, 11.9)           # накладка 11×6,9 на стенке
 button_center = cyl_y(4.0, 25.0, 8.45, -1.25, -1.0)     # цветной центр
