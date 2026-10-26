@@ -117,7 +117,6 @@
 </g>
 <text x="186" y="101" font-family="Helvetica" font-size="1.7" fill="#8b98a8" text-anchor="start" font-weight="normal">разрез по оси, масштаб 2:1</text>
 <text x="176" y="138" font-family="Helvetica" font-size="1.65" fill="#8b98a8" text-anchor="start" font-weight="normal">Корпус 46 × 24 × 17 мм. RTC 42 × 17 × 6 — отдельным слоем над АКБ.</text>
-<text x="176" y="141.6" font-family="Helvetica" font-size="1.65" fill="#8b98a8" text-anchor="start" font-weight="normal">В v2 RTC уедет на общую плату — корпус вернётся к 10–11 мм.</text>
 <text x="257" y="112" font-family="Helvetica" font-size="2" fill="#8b98a8" text-anchor="end" font-weight="normal">17,0</text>
 <line x1="258" y1="104" x2="258" y2="132.9" stroke="#8b98a8" stroke-width="0.2" stroke-linecap="round"/>
 <line x1="256" y1="104" x2="260" y2="104" stroke="#8b98a8" stroke-width="0.2" stroke-linecap="round"/>
