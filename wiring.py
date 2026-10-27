@@ -120,7 +120,8 @@ def L(x,y): return (BX+x*S, BY+y*S)
 # контур: капсула 42 обрезана на 40,5
 add('<g transform="translate(%s,%s) scale(%s)">'%(n(BX),n(BY),n(S)))
 add('<path d="M 5,0 L 41,0 A 5,5 0 0 1 46,5 L 46,19 A 5,5 0 0 1 41,24 L 5,24 A 5,5 0 0 1 0,19 L 0,16.2 L -4.6,16.2 A 4.2,4.2 0 0 1 -4.6,7.8 L 0,7.8 L 0,5 A 5,5 0 0 1 5,0 Z" fill="#f6f8fa" stroke="%s" stroke-width="0.5"/>'%INK)
-add('<rect x="43.4" y="7.9" width="2.1" height="8.2" rx="0.8" fill="#20262e"/>')
+add('<rect x="44.3" y="3" width="2.2" height="18" fill="#3a424b"/>')
+add('<rect x="44.3" y="6.9" width="2.2" height="10.2" rx="0.6" fill="#20262e"/>')
 add('<g transform="translate(0,0)">')
 add('<circle cx="25" cy="0.75" r="3.25" fill="#dbe4ee" stroke="%s" stroke-width="0.45"/>'%INK)
 add('<circle cx="25" cy="0.75" r="2.1" fill="none" stroke="%s" stroke-width="0.25"/>'%SOFT)
@@ -128,13 +129,13 @@ def rr2(x,y,w,h,r,fill,stroke,dash=None,wid=0.35):
     dd=' stroke-dasharray="%s"'%dash if dash else ""
     add('<rect x="%s" y="%s" width="%s" height="%s" rx="%s" fill="%s" stroke="%s" stroke-width="%s"%s/>'
         %(n(x),n(y),n(w),n(h),n(r),fill,stroke,n(wid),dd))
-rr2(24,3.1,21,17.8,1.2,"#dbe4ee",INK,None,0.45)      # XIAO
-rr2(1.5,1.5,11,20,1.0,"#f0e3cc",INK,None,0.45)           # АКБ
-rr2(2,2,42,17,1.0,"#cfe0f0",BLU,"1.2 0.9",0.4)    # RTC сверху 42×17
+rr2(25,3.1,21,17.8,1.2,"#dbe4ee",INK,None,0.45)      # XIAO (край в прорези стенки)
+rr2(2.4,2,11,20,1.0,"#f0e3cc",INK,None,0.45)           # АКБ
+rr2(2,2.4,42,17,1.0,"#cfe0f0",BLU,"1.2 0.9",0.4)    # RTC 42×17
 rr2(4.75,5.75,36.5,12.5,1.0,"none",SOFT,"1.6 1.1",0.4)  # дисплей сверху
 add('</g>')
-txt(28.5,12.5,"XIAO",2.2,"middle",INK,"Helvetica","bold")
-txt(9.5,21.5,"АКБ",2.0,"middle",INK,"Helvetica","bold")
+txt(35.5,12.5,"XIAO",2.2,"middle",INK,"Helvetica","bold")
+txt(7.9,12,"АКБ",2.0,"middle",INK,"Helvetica","bold")
 txt(9.5,6.5,"RTC",1.8,"middle",BLU,"Helvetica","bold")
 
 add('</g>')
@@ -147,16 +148,18 @@ def band(x0,x1,z0,z1,fill,stroke=INK,wid=0.4,label=None):
     add('<rect x="%s" y="%s" width="%s" height="%s" fill="%s" stroke="%s" stroke-width="%s"/>'
         %(n(x0),n(z0),n(x1-x0),n(z1-z0),fill,stroke,n(wid)))
 band(0,41,0,2.0,"url(#h)")                 # крышка
-band(2.2,37.8,2.0,3.3,"#1b2530")             # дисплей
+band(4.75,41.25,2.0,3.3,"#1b2530")             # дисплей
 band(2.0,44.0,3.3,9.3,"#cfe0f0")            # RTC 42×17×6
-band(1.5,12.5,10.3,14.3,TAN)                  # АКБ
-band(24.0,45.0,9.3,12.3,"#dbe4ee")           # XIAO
+band(2.4,13.4,9.3,13.3,TAN)                  # АКБ
+band(25.0,46.0,9.3,12.3,"#dbe4ee")           # XIAO
+band(44.8,46.6,9.5,12.5,"#20262e")           # разъём USB-C
 band(0,1.5,2.0,14.4,"url(#h)")                # стенка
-band(44.5,46,2.0,14.4,"url(#h)")            # стенка
+band(44.5,46,2.0,9.2,"url(#h)")            # стенка (ниже окна USB)
+band(44.5,46,13.4,14.4,"url(#h)")            # стенка (выше окна USB)
 band(0,46,14.4,17.0,"url(#h)")              # дно
 add('</g>')
 txt(CX,CY-3,"разрез по оси, масштаб 2:1",1.7,"start",SOFT)
-txt(176,138,"Корпус 46 × 24 × 17 мм. RTC 42 × 17 × 6 — отдельным слоем над АКБ.",1.65,"start",SOFT)
+txt(176,138,"Корпус 46 × 24 × 17 мм. RTC 42 × 17 × 6 — слоем между дисплеем и платой.",1.65,"start",SOFT)
 txt(CX+71,CY+8,"17,0",2.0,"end",SOFT)
 line(CX+72,CY,CX+72,CY+17.0*SS,0.2,SOFT)
 line(CX+70,CY,CX+74,CY,0.2,SOFT); line(CX+70,CY+17.0*SS,CX+74,CY+17.0*SS,0.2,SOFT)
@@ -174,8 +177,8 @@ STEPS=[
  ("7","Проверь на столе от АКБ, USB отключён. Код должен совпасть с телефоном."),
  ("8","АКБ: красный на BAT+, чёрный на BAT−. Полярность перепутаешь — плата умрёт."),
  ("9","Первый заряд — под присмотром: 380 мА для банки 100 мА·ч это 3,8C."),
- ("10","Уложи: дисплей на крышку, XIAO справа, АКБ слева, RTC сверху на АКБ."),
- ("11","Приклей мембрану снаружи, провода в отверстие Ø2,5, закрой корпус."),
+ ("10","Стакан дном вверх: АКБ на поролон, XIAO краем в прорезь, RTC, дисплей."),
+ ("11","Приклей мембрану снаружи, провода в отверстие Ø2,5 (слева), надень крышку."),
 ]
 col_x=[14,106,198]
 for i,(num,txt_s) in enumerate(STEPS):

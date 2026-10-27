@@ -85,6 +85,7 @@ items=[
  (P+"button.stl",(0.16,0.17,0.20),1.0),
  (P+"button_center.stl",(0.23,0.65,0.40),1.0),
  (P+"wire.stl",(0.85,0.62,0.18),1.0),
+ (P+"coin.stl",(0.86,0.76,0.40),1.0),   # монета 5 ₽ для масштаба
 ]
 render(items, "FOB-1_3d_side.png", size=(2200,1300), ss=2, eye_dir=(0.55,-0.58,-0.60), up=(0,0,1))
 print("FOB-1_3d_side.png")
