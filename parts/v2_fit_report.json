@@ -1,0 +1,49 @@
+{
+  "dimensions_mm": {
+    "body": [
+      48.0,
+      28.0,
+      19.0
+    ],
+    "with_ear_nominal": [
+      56.5,
+      28.0,
+      19.0
+    ]
+  },
+  "clearance_mm": 0.25,
+  "layers": {
+    "oled": [
+      2.0,
+      3.6
+    ],
+    "rtc": [
+      4.7,
+      10.7
+    ],
+    "xiao": [
+      11.2,
+      14.399999999999999
+    ],
+    "battery": [
+      11.2,
+      15.2
+    ],
+    "foam": [
+      15.2,
+      16.0
+    ]
+  },
+  "case_validity": {
+    "cover": {
+      "valid": true,
+      "solids": 1
+    },
+    "back": {
+      "valid": true,
+      "solids": 1
+    }
+  },
+  "case_component_intersections_mm3": {},
+  "cover_back_intersection_mm3": 0.0
+}

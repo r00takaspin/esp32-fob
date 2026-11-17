@@ -5,8 +5,9 @@ set -euo pipefail
 
 PY="${PY:-python3}"
 
-echo "[1/4] 3D-модель (STEP/STL)…"
+echo "[1/4] 3D-модели v1/v2 (STEP/STL)…"
 $PY v1_full.py
+$PY v2_full.py
 
 echo "[2/4] Схемы (SVG → PNG)…"
 $PY wiring.py
@@ -19,7 +20,8 @@ rsvg-convert -w 1600 -h 902 membrane_2wire_diagram.svg -o FOB-1_membrane_2wire.p
 echo "[3/4] Документация (.docx)…"
 $PY build_doc.py
 
-echo "[4/4] 3D-рендер…"
+echo "[4/4] 3D-рендеры v1/v2…"
 $PY render_final.py
+$PY render_v2.py
 
 echo "Готово."

@@ -72,6 +72,7 @@ def render(items, path, size=(2200,1300), ss=2, eye_dir=(0.62,-0.62,0.48), up=(0
     im=im.resize(size, Image.LANCZOS)
     im.save(path)
 
+<<<<<<< Updated upstream
 P="/tmp/r_"
 items=[
  ("parts/v1_back.stl",(0.66,0.71,0.79),1.0),
@@ -89,3 +90,22 @@ items=[
 ]
 render(items, "FOB-1_3d_side.png", size=(2200,1300), ss=2, eye_dir=(0.55,-0.58,-0.60), up=(0,0,1))
 print("FOB-1_3d_side.png")
+=======
+if __name__ == "__main__":
+    P="/tmp/r_"
+    items=[
+     ("parts/v1_back.stl",(0.66,0.71,0.79),1.0),
+     ("parts/v1_cover.stl",(0.66,0.71,0.79),1.0),
+     (P+"batt.stl",(0.85,0.76,0.62),1.0),
+     (P+"pcb.stl",(0.20,0.44,0.31),1.0),
+     (P+"shield.stl",(0.56,0.61,0.67),1.0),
+     (P+"usbc.stl",(0.10,0.12,0.15),1.0),
+     (P+"rtc.stl",(0.23,0.45,0.65),1.0),
+     (P+"display.stl",(0.07,0.09,0.12),1.0),
+     (P+"button.stl",(0.16,0.17,0.20),1.0),
+     (P+"button_center.stl",(0.23,0.65,0.40),1.0),
+     (P+"wire.stl",(0.85,0.62,0.18),1.0),
+    ]
+    render(items, "FOB-1_3d_side.png", size=(2200,1300), ss=2, eye_dir=(0.55,-0.58,-0.60), up=(0,0,1))
+    print("FOB-1_3d_side.png")
+>>>>>>> Stashed changes
